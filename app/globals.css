@@ -11,6 +11,7 @@ box-sizing: border-box;}
 body{
     overflow-x: hidden;
 }
+
 #arrow{
     opacity: 0;
     transition: opacity 200ms linear,
@@ -21,4 +22,8 @@ body{
 #card:hover #arrow{
     opacity: 1;
     transform: translateX(8px);
+}
+
+#nav-ul{
+    backdrop-filter: blur(40px);
 }

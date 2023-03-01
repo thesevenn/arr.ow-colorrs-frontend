@@ -1,6 +1,8 @@
 import "./globals.css";
 import {JetBrains_Mono, Montserrat} from "@next/font/google";
+
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const jetBrains = JetBrains_Mono({
 	weight: ["400", "500", "600", "700"],
@@ -22,11 +24,15 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<head />
 			<body
 				className={
-					"bg-gray-950 " + montserrat.className + " " + jetBrains.className
+					"relative bg-gray-950" +
+					jetBrains.className +
+					" " +
+					montserrat.className
 				}
 			>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

@@ -26,26 +26,26 @@ export interface Preview {
 export default function Main(): ReactElement {
 	const {data, error} = useSwr("preview", fetchPreview);
 	const preview_list = data?.data.batches;
-	console.log(preview_list && preview_list[0].batch_id);
+
 	return (
 		<>
 			<div className="flex flex-col items-center">
-				<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-br from-blue-500 to-blue-600 text-transparent bg-clip-text drop-shadow-md m-4">
+				<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-br from-blue-500 to-blue-600 text-transparent bg-clip-text drop-shadow-md m-4 text-center">
 					Create Palettes
 				</h1>
-				<h2 className="text-2xl md:text-2xl lg:text-4xl font-bold uppercase text-gray-200 m-2">
+				<h2 className="text-2xl md:text-2xl lg:text-4xl font-bold uppercase text-gray-200 m-2 text-center">
 					Bring Ideas to Life
 				</h2>
-				<h3 className="text-base md:text-xl font-medium uppercase text-blue-600 md:m-2">
+				<h3 className="text-base md:text-xl font-medium uppercase text-blue-600 md:m-2 text-center">
 					Design Brand of Yours
 				</h3>
 
 				<Inputs />
-				<p className="text-[18px] font-medium text-gray-500 m-2 mt-10">
+				<p className="text-[18px] font-medium text-gray-500 m-2 mt-10 text-center">
 					Don’t Have Any Brand Idea Yet? Choose from Our Curated Pallattes
 					Instead.
 				</p>
-				<h2 className="text-[20px] font-semibold text-gray-200 m-4">
+				<h2 className="text-[20px] font-semibold text-gray-200 m-4 text-center">
 					Choose From Our Colors Pallattes
 				</h2>
 				<div className="flex flex-wrap flex-row gap-8 w-[90vw] lg:w-[1200px] items-end justify-center mt-8 ">

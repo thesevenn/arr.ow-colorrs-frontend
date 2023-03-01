@@ -31,7 +31,6 @@ export default function Batch() {
 	const pathname = usePathname();
 	const {data, error} = useSwr(pathname, fetchBatch);
 	const batch = data?.data;
-	console.log(batch);
 
 	if (!data) return <SkeletonBatch />;
 

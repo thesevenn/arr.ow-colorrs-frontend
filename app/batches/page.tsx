@@ -42,8 +42,10 @@ export default function Batches() {
 	return (
 		<>
 			<div className="flex flex-col justify-center m-8 text-3xl font-semibold text-gray-200 items-center gap-8">
-				<h1 className="m-8 text-[32px]">Choose From Our Colors Pallattes</h1>
-				<section className="flex flex-row flex-wrap gap-8">
+				<h1 className="m-8 md:text-3xl text-xl text-gray-200 font-semibold">
+					Choose From Our Colors Pallattes
+				</h1>
+				<section className="flex flex-row flex-wrap gap-8 -[90vw] lg:w-[1200px] justify-center">
 					{list &&
 						list.map(item => (
 							<Card

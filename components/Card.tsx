@@ -36,7 +36,9 @@ export default function Card({
 							style={{backgroundColor: base || "gray"}}
 						></div>
 						<div>
-							<h1 className="text-gray-300 font-medium text-base">Hue:{hue}</h1>
+							<h1 className="text-gray-300 font-medium text-base">
+								Hue:{hue == 0 ? 360 : hue}
+							</h1>
 							<p className="text-gray-700 text-xs font-medium">{base}</p>
 						</div>
 						<i id="arrow" className="align-self-end justify-end ml-8">
