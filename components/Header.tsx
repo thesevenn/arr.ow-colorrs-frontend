@@ -17,7 +17,7 @@ export default function Header(): ReactElement {
 					</strong>
 				</Link>
 				<ul
-					className={` sm:flex flex-col sm:flex-row items-center text-base font-semibold gap-4 text-blue-300 fixed sm:static top-16 bg-blue-800/50 w-[100%] h-[100svh] sm:h-auto sm:bg-transparent sm:w-auto transition-all duration-300 delay-500 backdrop-blur-lg sm:backdrop-blur-0 
+					className={` sm:opacity-100 sm:flex flex-col sm:flex-row items-center text-base font-semibold gap-4 text-blue-300 fixed sm:static top-16 bg-blue-800/50 w-[100%] h-[100svh] sm:h-auto sm:bg-transparent sm:w-auto transition-all duration-300 delay-500 backdrop-blur-lg sm:backdrop-blur-0 
 					${showMenu ? "right-0 flex opacity-100" : "-right-full hidden opacity-0"}
 					`}
 					id="nav-ul"

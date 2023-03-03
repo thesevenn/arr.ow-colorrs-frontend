@@ -8,7 +8,7 @@ import logo from "../public/arr.ow.svg";
 
 export default function Footer(): ReactElement {
 	return (
-		<footer className="bg-gray-200 flex flex-col items-center ">
+		<footer className=" bg-gray-200 flex flex-col items-center ">
 			<div className="flex flex-row items-center gap-10 p-4">
 				<Link href="/">
 					<Image src={logo} alt="Arr.ow" className="w-14" />
@@ -20,8 +20,8 @@ export default function Footer(): ReactElement {
 						href="http://buymeacoffee.com/sevenn/"
 						className="flex flex-row items-center gap-2"
 					>
-						<SiBuymeacoffee />
 						<span className="underline">Buy Me A Coffee</span>
+						<SiBuymeacoffee />
 					</Link>
 				</ul>
 			</div>
