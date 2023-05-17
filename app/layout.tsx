@@ -24,7 +24,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<head />
 			<body
 				className={
-					"relative bg-gray-950" +
+					"relative bg-gray-950 " +
 					jetBrains.className +
 					" " +
 					montserrat.className

@@ -1,6 +1,13 @@
 import {ReactElement} from "react";
 import {FaArrowRight} from "react-icons/fa";
 import Link from "next/link";
+import {JetBrains_Mono} from "@next/font/google";
+
+const jetBrains = JetBrains_Mono({
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-jetBrains",
+	subsets: ["latin"],
+});
 
 type PropType = {
 	preview: Array<string>;
@@ -8,6 +15,7 @@ type PropType = {
 	hue: number;
 	batch_id: string;
 };
+
 export default function Card({
 	preview,
 	base,
@@ -36,10 +44,20 @@ export default function Card({
 							style={{backgroundColor: base || "gray"}}
 						></div>
 						<div>
-							<h1 className="text-gray-300 font-medium text-base">
+							<h1
+								className={
+									jetBrains.className + " text-gray-400 font-medium text-base"
+								}
+							>
 								Hue:{hue == 0 ? 360 : hue}
 							</h1>
-							<p className="text-gray-700 text-xs font-medium">{base}</p>
+							<p
+								className={
+									jetBrains.className + " text-gray-700 text-xs font-medium"
+								}
+							>
+								{base}
+							</p>
 						</div>
 						<i id="arrow" className="align-self-end justify-end ml-8">
 							<FaArrowRight className="text-gray-700 text-2xl" />

@@ -2,6 +2,15 @@
 import {ReactElement, useState} from "react";
 import {IoRocketSharp} from "react-icons/io5";
 import Link from "next/link";
+import {JetBrains_Mono} from "@next/font/google";
+
+import {validateHex} from "@/utils/validate";
+
+const jetBrains = JetBrains_Mono({
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-jetBrains",
+	subsets: ["latin"],
+});
 
 export default function Inputs(): ReactElement {
 	const [color, setColor] = useState<string>("");
@@ -14,14 +23,21 @@ export default function Inputs(): ReactElement {
 	return (
 		<>
 			<section className="flex flex-col items-center">
-				<div className="bg-white rounded-[8px] p-[4px] sm:gap-2 m-4 flex sm:flex-row items-center justify-between shadow-md flex-col gap-4">
+				<div className="bg-white rounded-[8px] p-[4px] sm:gap-2 m-4 flex sm:flex-row items-center justify-between shadow-md flex-col gap-4 relative">
 					<input
 						type="text"
 						name="text_color"
 						id="text_color"
 						placeholder="Enter code here"
-						className="p-2 appearance-none outline-none sm:w-[160px] w-[140px] placeholder:text-sm"
+						className={
+							jetBrains.className +
+							" p-2 pl-4 appearance-none outline-none sm:w-[160px] w-[140px] placeholder:text-sm"
+						}
 						onChange={handleInput}
+						onBlur={() => {
+							let valid = validateHex(color);
+							if (!valid) console.log("not valid");
+						}}
 						value={color}
 					/>
 					<span className="text-xs font-semibold bg-blue-900 rounded-full p-2 text-blue-200">
@@ -39,8 +55,15 @@ export default function Inputs(): ReactElement {
 							value={color}
 						/>
 					</button>
+					<div
+						className="absolute w-8 aspect-square  rounded-full -right-12"
+						style={{backgroundColor: color}}
+					></div>
 				</div>
-				<Link href={color.substring(1)} prefetch={false}>
+				<Link
+					href={validateHex(color) ? color.substring(1) : ""}
+					prefetch={false}
+				>
 					<button className="bg-gradient-to-br from-blue-500 to-blue-300 text-white flex flex-row items-center justify-center px-4 py-2 w-[240px] h-[48px] rounded-[8px] gap-2 text-base font-semibold m-2 shadow-md">
 						<span> Generate</span>
 						<IoRocketSharp className="text-white text-lg" />

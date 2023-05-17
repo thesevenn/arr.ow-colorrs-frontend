@@ -4,7 +4,12 @@ import Link from "next/link";
 import {FaBars, FaTimes} from "react-icons/fa";
 import logo from "../public/arr.ow.svg";
 import {ReactElement, useState} from "react";
-
+import {JetBrains_Mono} from "@next/font/google";
+const jetBrains = JetBrains_Mono({
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-jetBrains",
+	subsets: ["latin"],
+});
 export default function Header(): ReactElement {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	return (
@@ -12,7 +17,12 @@ export default function Header(): ReactElement {
 			<nav className="flex flex-row justify-between items-center bg-blue-800/25 backdrop-blur-sm top-0 border-b-[0.5px] border-blue-100/25 relative border-solid shadow-md py-2 px-4 md:px-10 z-10">
 				<Link href="/" className="flex  flex-row items-center">
 					<Image src={logo} className="w-12" alt="Arr.ow" priority />
-					<strong className="text-sm font-bold uppercase font-montserrat text-blue-100 hidden md:block">
+					<strong
+						className={
+							jetBrains.className +
+							" text-sm font-bold uppercase font-montserrat text-blue-100 hidden md:block"
+						}
+					>
 						Arr.ow
 					</strong>
 				</Link>

@@ -1,9 +1,13 @@
 "use client";
+import {useRef} from "react";
 import {JetBrains_Mono, Montserrat} from "@next/font/google";
 import {FaDownload} from "react-icons/fa";
 import {usePathname} from "next/navigation";
 import useSwr from "swr";
 import axios from "axios";
+import {useReactToPrint} from "react-to-print";
+
+import Exportable from "@/components/Exportable";
 
 const jetBrains = JetBrains_Mono({
 	weight: ["400", "500", "600", "700"],
@@ -27,15 +31,22 @@ const fetchBatch = async (pathname: string) => {
 };
 
 export default function Batch() {
-	const flag = true;
+	const exportRef = useRef<HTMLDivElement | null>(null);
 	const pathname = usePathname();
 	const {data, error} = useSwr(pathname, fetchBatch);
 	const batch = data?.data;
+	const handlePrint = useReactToPrint({
+		content: () => exportRef.current,
+	});
 
 	if (!data) return <SkeletonBatch />;
+	if (error) throw new Error(error.message);
 
 	return (
 		<div className="flex justify-center">
+			<div className="hidden">
+				<Exportable print={exportRef} batch={batch} />
+			</div>
 			<section className="flex flex-col justify-center">
 				<div className="flex flex-row justify-between items-center mt-16 mb-4">
 					<h1
@@ -50,12 +61,15 @@ export default function Batch() {
 						<button
 							className={
 								montserrat.className +
-								" underline font-medium text-gray-200 mx-2 md:block hidden"
+								" underline font-medium text-gray-200 mx-2 hidden"
 							}
 						>
 							Save as .png
 						</button>
-						<button className="bg-blue-500 text-blue-950 px-3 md:px-4 py-2 rounded-[8px] font-medium shadow-sm mx-2 text-sm">
+						<button
+							className="bg-blue-500 text-blue-950 px-3 md:px-4 py-2 rounded-[8px] font-medium shadow-sm mx-2 text-sm"
+							onClick={() => handlePrint()}
+						>
 							Export .pdf
 						</button>
 					</div>
