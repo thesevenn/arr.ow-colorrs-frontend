@@ -6,6 +6,8 @@ export default function Error({
 	error: Error;
 	reset: () => void;
 }) {
+	console.log(error);
+
 	return (
 		<div>
 			<h2>Something went Wrong</h2>

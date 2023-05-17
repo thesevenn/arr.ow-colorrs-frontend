@@ -74,7 +74,7 @@ export default function Main(): ReactElement {
 						"text-[18px] font-medium text-gray-500 m-2 mt-10 text-center"
 					}
 				>
-					Don’t Have Any Brand Idea Yet? Choose from Our Curated Pallattes
+					Dont Have Any Brand Idea Yet? Choose from Our Curated Pallattes
 					Instead.
 				</p>
 				<h2
@@ -87,6 +87,7 @@ export default function Main(): ReactElement {
 				</h2>
 				<div className="flex flex-wrap flex-row gap-8 w-[90vw] lg:w-[1200px] items-end justify-center mt-8 ">
 					{data ? (
+						preview_list.length &&
 						preview_list.map((preview: Preview, index: number) => (
 							<Card
 								key={index}
