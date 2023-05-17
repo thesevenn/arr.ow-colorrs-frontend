@@ -37,7 +37,10 @@ export interface Preview {
 
 export default function Main(): ReactElement {
 	const {data, error} = useSwr("preview", fetchPreview);
-	const preview_list = data?.data.batches;
+	const preview_list = data?.data.batches || [];
+	if (error) {
+		return <div>Something went wrong</div>;
+	}
 
 	return (
 		<>
