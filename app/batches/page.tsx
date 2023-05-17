@@ -46,7 +46,7 @@ export default function Batches() {
 					Choose From Our Colors Pallattes
 				</h1>
 				<section className="flex flex-row flex-wrap gap-8 -[90vw] lg:w-[1200px] justify-center">
-					{list &&
+					{list.length &&
 						list.map(item => (
 							<Card
 								preview={item.preview.slice(4)}
@@ -59,6 +59,7 @@ export default function Batches() {
 
 					{loading &&
 						staticArray.map((item, index) => <SkeletonCard key={index} />)}
+					{!loading && !list.length && <div>Nothing to show here</div>}
 				</section>
 				{left > 0 && (
 					<button
